@@ -6,7 +6,6 @@ class Game
   def initialize(save={})  #word=get_word, guesses_remaining=8, letters_used=[[],[]], progress='_'*word.length)
     @end_game = false
     @word = save['word'] || get_word
-    puts @word
     @guesses_remaining = save['guesses_remaining'] || 8
     @letters_used = save['letters_used'] || [[],[]]
     @progress = save['progress'] || ('_' * @word.length).chars
