@@ -42,7 +42,10 @@ class Game
     if guess == '3'
       return save_game
     elsif (/[a-z]/ =~ guess).nil?
-      invalid_guess 
+      invalid_guess
+    elsif @letters_used.flatten.include?(guess) 
+      puts "\nThat letter has already been guessed!"
+      return get_guess
     end
     @word.include?(guess) ? correct_guess(guess) : incorrect_guess(guess)
   end
@@ -87,6 +90,7 @@ end
     if @progress.join == @word
       sleep 1
       puts "\nCongratulations! You guessed the word!"
+      puts "\n#{@progress.join(' ')}"
       return true
     elsif @guesses_remaining == 0
       sleep 1
@@ -97,7 +101,7 @@ end
   end
 
   def play_again
-    puts "Play again?  Y or N"
+    puts "\n\nPlay again?  Y or N"
     choice = gets.chomp.downcase
     return choice == 'y' ? Game.new : []
   end
