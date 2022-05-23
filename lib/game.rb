@@ -32,7 +32,7 @@ class Game
   def display
     
     puts "\n\n#{'-' * 40}\n\nIncorrect guesses remaining: #{@guesses_remaining}"
-    puts "\n          #{@progress.join(' ')}        Correct letters guessed: #{@letters_used[0]}     Incorrect letters guessed: #{@letters_used[1]}"
+    puts "\n          #{@progress.join(' ')}        Correct letters guessed: #{@letters_used[0].join(' ')}     Incorrect letters guessed: #{@letters_used[1].join(' ')}"
     
   end
 
